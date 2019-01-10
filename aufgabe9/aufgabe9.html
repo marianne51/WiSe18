@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UFT-8">
+    <title>Aufgabe 9</title>
+      <style>
+      * {
+        box-sizing: border-box;
+        }
+
+        #div1{
+          width: 200px;
+          height: 200px;
+          background-color: red;
+        }
+
+        #inp1{
+          font-weight: bold;
+          font-size: 1em;
+        }
+        </style>
+</head>
+  <body>
+    <h1>Mausereignisse behandeln mit JavaScript</h1>
+    <div id="div1" onclick="changeColor('green');"
+                   ondblclick="insertText('Doppelklick');"
+                   onmouseenter="changeSize(true);"
+                   onmouseleave="changeSize(false);"
+    ></div>
+    <h1>Tastaturereignisse behandeln mit JavaScript</h1>
+    <input id="inp1"
+    onkeyup="mirrorInput();"
+    onfocus="document.getElementById('inp1').style.backgroundColor='lightblue'"
+    onblur="document.getElementById('inp1').style.backgroundColor='white';"/>
+    <div id="div2" style="padding-top:20px; font-weight:bold;"></div>
+    <script>
+      function mirrorInput()
+      {
+        var inp = document.getElementById('inp1').value;
+        if(isNaN(inp) || inp<1 || inp>10000)
+        {
+          document.getElementById('inp1').style.color = 'red';
+        }
+        else
+        {
+          document.getElementById('inp1').style.color = 'green';
+        }
+        document.getElementById('div2').innerHTML = inp;
+      }
+
+
+      function changeColor(color)
+      {
+        document.getElementById('div1').style.backgroundColor = color;
+      }
+
+      function insertText(text)
+      {
+        var div = document.getElementById('div1');
+        div.innerHTML = text;
+        div.style.textAlign = 'center';
+        div.style.color = 'white';
+        div.style.lineHeight='200px';
+      }
+
+
+      function changeSize(bigger)
+      {
+        var div = document.getElementById('div1');
+        if(bigger)
+        {
+          div.style.width = '300px';
+          div.style.height = '300px';
+        }
+        else
+        {
+          div.style.width = '200px';
+          div.style.height = '200px';
+        }
+      }
+
+
+      function insertText(text)
+      {
+        var div = document.getElementById('div1');
+        div.innerHTML = text;
+        div.style.textAlign = 'center';
+        div.style.color = 'white';
+        div.style.lineHeight='200px';
+      }
+    </script>
+
+  </body>
+</html>
